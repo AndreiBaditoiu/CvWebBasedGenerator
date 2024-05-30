@@ -23,11 +23,12 @@
 <br>
 <p>Education</p>
 <ul>
-    <li>{{ user_profile.school }}</li>
-    <li>{{ user_profile.university }}</li>
+    <li>Schooling: {{ user_profile.school }}</li>
+    <li>{{ user_profile.degree }} from {{ user_profile.university }}</li>
 </ul>
-
-<h2>{{ user_profile.previous_role }}</h2>
+<hr>
+<p>Previous Position</p>
+<p>{{ user_profile.previous_role }}</p>
 
 </body>
 </html>
