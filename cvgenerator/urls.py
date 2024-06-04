@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.accept, name='accept'),
     path('<int:id>/', views.resume, name='resume'),
+    path('list/', views.my_list, name='list'),
 ]

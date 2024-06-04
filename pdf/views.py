@@ -1,3 +1,5 @@
+import profile
+
 import pdfkit
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -17,7 +19,7 @@ def accept(request):
         degree = request.POST.get('degree', "")
         school = request.POST.get('school', "")
         university = request.POST.get('university', "")
-        previous_role = request.POST.get('previous_work', "")
+        previous_role = request.POST.get('previous_role', "")
         skills = request.POST.get('skills', "")
         profile = Profile(name=name, email=email, phone=phone, summary=summary, degree=degree, school=school,
                           university=university, previous_role=previous_role, skills=skills)
@@ -40,3 +42,9 @@ def resume(request, id):
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = 'attachment; filename="resume.pdf"'
     return response
+
+
+def my_list(request):
+    profiles = Profile.objects.all()
+    return render(request, 'pdf/list.html', {'profiles': profiles})
+
